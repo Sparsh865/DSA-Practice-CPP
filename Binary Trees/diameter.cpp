@@ -42,26 +42,37 @@ TreeNode* createTree(vector<int> arr){
     }
     return root;
 }
-int maxDepth(TreeNode* root){
-    if(root==nullptr) return 0;
+// int maxDepth(TreeNode* root){
+//     if(root==nullptr) return 0;
 
-    int lh=maxDepth(root->left);
-    int rh=maxDepth(root->right);
+//     int lh=maxDepth(root->left);
+//     int rh=maxDepth(root->right);
 
-    return 1+max(lh,rh);
-}
+//     return 1+max(lh,rh);
+// }
 
-int diameterBT(TreeNode* root){
+// int diameterBT(TreeNode* root){
+//     if (root == nullptr)
+//         return 0;
+
+//     int lh = maxDepth(root->left);
+//     int rh = maxDepth(root->right);
+
+//     int ld=diameterBT(root->left);
+//     int rd=diameterBT(root->right);
+
+//     return max(lh+rh,max(ld,rd));
+// }
+
+int height(TreeNode *root, int &diameter)
+{
     if (root == nullptr)
         return 0;
 
-    int lh = maxDepth(root->left);
-    int rh = maxDepth(root->right);
-
-    int ld=diameterBT(root->left);
-    int rd=diameterBT(root->right);
-
-    return max(lh+rh,max(ld,rd));
+    int lh = height(root->left, diameter);
+    int rh = height(root->right, diameter);
+    diameter = max(diameter, lh + rh);
+    return 1 + max(lh, rh);
 }
 
 int main(){
@@ -72,6 +83,7 @@ int main(){
 
     inputVector(input);
     TreeNode* root = createTree(input);
-    int diameter=diameterBT(root);
+    int diameter=0;
+    height(root,diameter);
     cout<<diameter;
 }

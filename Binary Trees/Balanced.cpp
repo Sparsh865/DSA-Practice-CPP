@@ -20,28 +20,35 @@ class TreeNode{
 
 };
 
-TreeNode* createTree(vector<int> arr){
-    if(arr.empty()) return nullptr;
+TreeNode *createTree(vector<int> arr){
+    if (arr.empty())
+        return nullptr;
 
-    TreeNode* root = new TreeNode(arr[0]);
-    vector<TreeNode*> nodes={root};
-    int parentIndex=0;
+    TreeNode *root = new TreeNode(arr[0]);
+    vector<TreeNode *> nodes = {root};
+    int parentIndex = 0;
 
-    for(int i=1;i<arr.size();i++){
-        if(arr[i]!=-1){
-            TreeNode* newNode= new TreeNode(arr[i]);
-            if(i%2==1){
-                nodes[parentIndex]->left=newNode;
+    for (int i = 1; i < arr.size(); i++){
+        if (arr[i] != -1){
+            TreeNode *newNode = new TreeNode(arr[i]);
+            if (i % 2 == 1){
+                nodes[parentIndex]->left = newNode;
             }
             else{
-                nodes[parentIndex]->right=newNode;
-                parentIndex++;
+                nodes[parentIndex]->right = newNode;
+
             }
             nodes.push_back(newNode);
         }
+
+        if (i % 2 == 0){
+            parentIndex++;
+        }
     }
+
     return root;
 }
+
 int dfsHeight(TreeNode *root)
 {
 

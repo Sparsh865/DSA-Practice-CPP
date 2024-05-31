@@ -2,9 +2,8 @@
 
 using namespace std;
 
-vector<int> bfs(const vector<vector<int>> &adjList, int startNode, vector<bool> &visited){
+void bfs(vector<vector<int>> &adjList, int startNode, vector<bool> &visited,vector<int>& bfsOrder){
     queue<int> q;
-    vector<int> bfsOrder;
 
     visited[startNode] = true;
     q.push(startNode);
@@ -22,8 +21,6 @@ vector<int> bfs(const vector<vector<int>> &adjList, int startNode, vector<bool> 
             }
         }
     }
-
-    return bfsOrder;
 }
 
 vector<vector<int>> createGraph(int vertices, int edges){
@@ -45,8 +42,9 @@ int main(){
 
     vector<vector<int>> adjList = createGraph(vertices, edges);
     vector<bool> visited(vertices, false);
+    vector<int> bfsOrder;
 
-    vector<int> bfsOrder = bfs(adjList, 0, visited); //Instead of zero you can include any starting node
+    bfs(adjList, 0, visited,bfsOrder); //Instead of zero you can include any starting node
 
     for (int node : bfsOrder){
         cout << node << " ";

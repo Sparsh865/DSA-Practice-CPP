@@ -4,7 +4,7 @@ using namespace std;
 void dfs(const vector<vector<int>> &adjList, int currentNode, vector<bool> &visited, vector<int> &dfsOrder)
 {
     visited[currentNode] = true;
-    dfsOrder.push_back(currentNode + 1); // Adjusting to 1-based index for output
+    dfsOrder.push_back(currentNode + 1); 
 
     for (int neighbor : adjList[currentNode])
     {
@@ -22,8 +22,8 @@ vector<vector<int>> createGraph(int vertices, int edges)
     {
         int u, v;
         cin >> u >> v;
-        adjList[u - 1].push_back(v - 1); // Adjusting for 0-based index
-        adjList[v - 1].push_back(u - 1); // For undirected graph
+        adjList[u - 1].push_back(v - 1); 
+        adjList[v - 1].push_back(u - 1); 
     }
     return adjList;
 }
@@ -37,8 +37,6 @@ int main()
     vector<bool> visited(vertices, false);
     vector<int> dfsOrder;
 
-    // DFS traversal starting from vertex 1
-    cout << "Depth First Traversal starting from vertex 1: ";
     for (int i = 0; i < vertices; ++i)
     {
         if (!visited[i])
@@ -47,7 +45,6 @@ int main()
         }
     }
 
-    // Print DFS order
     for (int node : dfsOrder)
     {
         cout << node << " ";

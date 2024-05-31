@@ -51,7 +51,6 @@ int main()
 
     vector<int> bfsOrder = bfs(adjList, 0, visited); 
 
-    cout << "Breadth First Traversal starting from vertex 1: ";
     for (int node : bfsOrder)
     {
         cout << node << " ";

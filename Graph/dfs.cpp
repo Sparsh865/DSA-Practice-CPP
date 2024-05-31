@@ -4,7 +4,8 @@ using namespace std;
 void dfs(vector<vector<int>> &adjList, int currentNode, vector<bool> &visited, vector<int> &dfsOrder)
 {
     visited[currentNode] = true;
-    dfsOrder.push_back(currentNode + 1); 
+    dfsOrder.push_back(currentNode + 1); //If vertice start from 1
+    // dfsOrder.push_back(currentNode); // If vertice start from 0
 
     for (int neighbor : adjList[currentNode])
     {
@@ -36,6 +37,15 @@ int main()
     vector<vector<int>> adjList = createGraph(vertices, edges);
     vector<bool> visited(vertices, false);
     vector<int> dfsOrder;
+
+//If you are given a starting node
+    // int startNode;
+    // cin >> startNode;
+
+    // if (!visited[startNode])
+    // {
+    //     dfs(adjList, startNode, visited, dfsOrder);
+    // }
 
     for (int i = 0; i < vertices; ++i)
     {

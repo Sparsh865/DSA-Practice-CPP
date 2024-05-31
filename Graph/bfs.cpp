@@ -33,7 +33,9 @@ vector<vector<int>> createGraph(int vertices, int edges){
         adjList[u - 1].push_back(v - 1); // If vertice start from 1
         // adjList[u].push_back(v); //If vertice start from 0    }
         return adjList;
+    }
 }
+
 
 int main(){
     int vertices, edges;

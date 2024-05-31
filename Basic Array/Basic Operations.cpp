@@ -89,3 +89,30 @@ using namespace std;
 
 //     return 0;
 // }
+
+//Prime Number
+
+bool checkPrime(int a){
+    int count=0;
+    for(int i = 1;i<sqrt(a);i++){
+        if(a%i==0){
+            count++;
+            if(a/i!=i){
+                count++;
+            }
+        }
+    }
+    if(count==2){
+        return true;
+    }
+    return false;
+}
+
+int main(){
+    int a;
+    cin>>a;
+    if(checkPrime(a)) cout<<"Prime Number";
+    else cout<<"Not Prime Number";
+
+    return 0;
+}

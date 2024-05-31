@@ -2,24 +2,20 @@
 
 using namespace std;
 
-vector<int> bfs(const vector<vector<int>> &adjList, int startNode, vector<bool> &visited)
-{
+vector<int> bfs(const vector<vector<int>> &adjList, int startNode, vector<bool> &visited){
     queue<int> q;
     vector<int> bfsOrder;
 
     visited[startNode] = true;
     q.push(startNode);
 
-    while (!q.empty())
-    {
+    while (!q.empty()){
         int currentNode = q.front();
         q.pop();
         bfsOrder.push_back(currentNode + 1);
 
-        for (int neighbor : adjList[currentNode])
-        {
-            if (!visited[neighbor])
-            {
+        for (int neighbor : adjList[currentNode]){
+            if (!visited[neighbor]){
                 visited[neighbor] = true;
                 q.push(neighbor);
             }
@@ -29,20 +25,17 @@ vector<int> bfs(const vector<vector<int>> &adjList, int startNode, vector<bool> 
     return bfsOrder;
 }
 
-vector<vector<int>> createGraph(int vertices, int edges)
-{
+vector<vector<int>> createGraph(int vertices, int edges){
     vector<vector<int>> adjList(vertices);
-    for (int i = 0; i < edges; ++i)
-    {
+    for (int i = 0; i < edges; ++i){
         int u, v;
         cin >> u >> v;
-        adjList[u - 1].push_back(v - 1); 
-    }
-    return adjList;
+        adjList[u - 1].push_back(v - 1); // If vertice start from 1
+        // adjList[u].push_back(v); //If vertice start from 0    }
+        return adjList;
 }
 
-int main()
-{
+int main(){
     int vertices, edges;
     cin >> vertices >> edges;
 
@@ -51,8 +44,7 @@ int main()
 
     vector<int> bfsOrder = bfs(adjList, 0, visited); 
 
-    for (int node : bfsOrder)
-    {
+    for (int node : bfsOrder){
         cout << node << " ";
     }
 

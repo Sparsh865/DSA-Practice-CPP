@@ -12,7 +12,8 @@ vector<int> bfs(const vector<vector<int>> &adjList, int startNode, vector<bool> 
     while (!q.empty()){
         int currentNode = q.front();
         q.pop();
-        bfsOrder.push_back(currentNode + 1);
+        bfsOrder.push_back(currentNode + 1); //If vertice start from 1
+        // bfsOrder.push_back(currentNode); // If vertice start from 0
 
         for (int neighbor : adjList[currentNode]){
             if (!visited[neighbor]){
@@ -45,7 +46,7 @@ int main(){
     vector<vector<int>> adjList = createGraph(vertices, edges);
     vector<bool> visited(vertices, false);
 
-    vector<int> bfsOrder = bfs(adjList, 0, visited); 
+    vector<int> bfsOrder = bfs(adjList, 0, visited); //Instead of zero you can include any starting node
 
     for (int node : bfsOrder){
         cout << node << " ";

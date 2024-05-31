@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 void leftRotate(vector<int> &arr, int d)
 {
     if (d == 0 || d == arr.size())

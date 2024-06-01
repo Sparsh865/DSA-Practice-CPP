@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void dfs(vector<vector<int>> &adjList, int currentNode, vector<bool> &visited, vector<int> &dfsOrder)
-{
+void dfs(vector<vector<int>> &adjList, int currentNode, vector<bool> &visited, vector<int> &dfsOrder){
     visited[currentNode] = true;
     dfsOrder.push_back(currentNode + 1); //If vertice start from 1
     // dfsOrder.push_back(currentNode); // If vertice start from 0
@@ -16,8 +15,7 @@ void dfs(vector<vector<int>> &adjList, int currentNode, vector<bool> &visited, v
     }
 }
 
-vector<vector<int>> createGraph(int vertices, int edges)
-{
+vector<vector<int>> createGraph(int vertices, int edges){
     vector<vector<int>> adjList(vertices);
     for (int i = 0; i < edges; ++i)
     {
@@ -29,8 +27,8 @@ vector<vector<int>> createGraph(int vertices, int edges)
     return adjList;
 }
 
-int main()
-{
+int main(){
+    
     int vertices, edges;
     cin >> vertices >> edges;
 

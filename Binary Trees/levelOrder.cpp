@@ -35,9 +35,11 @@ TreeNode *createTree(vector<int> arr)
             else
             {
                 nodes[parentIndex]->right = newNode;
-                parentIndex++;
             }
             nodes.push_back(newNode);
+        }
+        if(i%2==0){
+            parentIndex++;
         }
     }
     return root;

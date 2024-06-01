@@ -92,7 +92,7 @@ vector<int> postOrderTraversal(TreeNode* root){
 
 int main(){
     string str;
-    cin>>str;
+    getline(cin, str);
     vector<int> input;
     inputVectorString(input,str);
     TreeNode* root = createTree(input);

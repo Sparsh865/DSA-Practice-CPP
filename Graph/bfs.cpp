@@ -42,8 +42,11 @@ int main(){
     vector<vector<int>> adjList = createGraph(vertices, edges);
     vector<bool> visited(vertices, false);
     vector<int> bfsOrder;
-
-    bfs(adjList, 0, visited,bfsOrder); //Instead of zero you can include any starting node
+    // int startNode;
+    // cin>>startNode;
+    // startNode=startNode-1;
+    // bfs(adjList, startNode, visited,bfsOrder); //Instead of zero you can include any starting node
+    bfs(adjList, 0, visited, bfsOrder);
 
     for (int node : bfsOrder){
         cout << node << " ";

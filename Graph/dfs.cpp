@@ -28,7 +28,7 @@ vector<vector<int>> createGraph(int vertices, int edges){
 }
 
 int main(){
-    
+
     int vertices, edges;
     cin >> vertices >> edges;
 
@@ -45,8 +45,7 @@ int main(){
     //     dfs(adjList, startNode, visited, dfsOrder);
     // }
 
-    for (int i = 0; i < vertices; ++i)
-    {
+    for (int i = 0; i < vertices; ++i){
         if (!visited[i])
         {
             dfs(adjList, i, visited, dfsOrder);

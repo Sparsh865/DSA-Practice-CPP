@@ -22,8 +22,7 @@ vector<vector<int>> transposeGraph(vector<vector<int>> adjList){
     }
     return transpose;
 }
-void printGraph(vector<vector<int>> &adjList)
-{
+void printGraph(vector<vector<int>> &adjList){
     int V = adjList.size();
     for (int i = 0; i < V; ++i)
     {
@@ -35,8 +34,7 @@ void printGraph(vector<vector<int>> &adjList)
         cout << endl;
     }
 }
-void displayGraph(vector<vector<int>>adjList)
-{
+void displayGraph(vector<vector<int>>adjList){
     int v=adjList.size();
     for (int i = 0; i < v; i++)
     {

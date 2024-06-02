@@ -51,11 +51,8 @@ void printVector(vector<int> arr){
 vector<int> topView(TreeNode* root){
     map<int,int> mpp;
     vector<int> result;
-
     queue<pair<TreeNode*,int>> q;
-
     q.push({root,0});
-
     while(!q.empty()){
         auto it= q.front();
         q.pop();

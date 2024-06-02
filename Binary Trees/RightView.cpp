@@ -15,11 +15,18 @@ public:
     }
 };
 
-void inputVector(vector<int> &arr)
+// void inputVector(vector<int> &arr)
+// {
+//     for (int i = 0; i < arr.size(); i++)
+//     {
+//         cin >> arr[i];
+//     }
+// }
+void inputVector(string str, vector<int> &arr)
 {
-    for (int i = 0; i < arr.size(); i++)
+    for (char c : str)
     {
-        cin >> arr[i];
+        arr.push_back(c - '0');
     }
 }
 
@@ -45,10 +52,12 @@ TreeNode *createTree(vector<int> arr)
             else
             {
                 nodes[parentIndex]->right = newNode;
-                parentIndex++;
+                
             }
             nodes.push_back(newNode);
         }
+        if(i%2==0)
+            parentIndex++;
     }
     return root;
 }
@@ -95,10 +104,12 @@ vector<int> leftSideView(TreeNode* root){
 }
 
 int main(){
-    int n;
-    cin>>n;
-    vector<int> input(n);
-    inputVector(input);
+    // int n;
+    // cin>>n;
+    string str;
+    getline(cin,str);
+    vector<int> input;
+    inputVector(str,input);
     TreeNode* root= createTree(input);
 
     vector<int> left = leftSideView(root);

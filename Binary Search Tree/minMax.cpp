@@ -23,6 +23,14 @@ void inputVector(vector<int> &arr)
     }
 }
 
+void printVector(vector<int> &arr)
+{
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+
 TreeNode *createTree(vector<int> arr)
 {
     if (arr.empty())
@@ -45,33 +53,37 @@ TreeNode *createTree(vector<int> arr)
             else
             {
                 nodes[parentIndex]->right = newNode;
-                parentIndex++;
             }
             nodes.push_back(newNode);
         }
+        if (i % 2 == 0)
+            parentIndex++;
     }
     return root;
 }
 
-int maxVal(TreeNode* root){
-    if(root==nullptr) return -1;
+int maxVal(TreeNode *root)
+{
+    if (root == nullptr)
+        return -1;
 
-    if(root->right){
-        return maxVal(root->right);
+    while (root->right != nullptr)
+    {
+        root = root->right;
     }
-    else return root->data;
+    return root->data;
 }
+
 int minVal(TreeNode *root)
 {
     if (root == nullptr)
         return -1;
 
-    if (root->left)
+    while (root->left != nullptr)
     {
-        return minVal(root->left);
+        root = root->left;
     }
-    else
-        return root->data;
+    return root->data;
 }
 
 int main()
@@ -80,6 +92,9 @@ int main()
     cin >> n;
     vector<int> input(n);
     inputVector(input);
+
     TreeNode *root = createTree(input);
-    cout<<minVal(root)<<" "<<maxVal(root);
+    cout << minVal(root) << " " << maxVal(root) << endl;
+
+    return 0;
 }

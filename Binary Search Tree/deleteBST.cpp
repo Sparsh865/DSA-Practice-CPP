@@ -67,39 +67,58 @@ TreeNode* helper(TreeNode* root){
     return root->left;
 }
 
+// TreeNode *deleteBST(TreeNode *root, int key)
+// {
+//     if (root == nullptr)
+//         return nullptr;
+
+//     if (root->data == key)
+//     {
+//         return helper(root);
+//     }
+
+//     TreeNode *dummy = root;
+
+//     while (root != nullptr)
+//     {
+//         if (root->data > key){
+//             if (root->left != nullptr && root->left->data == key){
+//                 root->left = helper(root->left);
+//                 break;
+//             } else{
+//                 root = root->left;
+//             }
+//         }
+//         else{
+//             if(root->right!=nullptr && root->right->data==key){
+//                 root->right = helper(root->right);
+//                 break;
+//             }
+//             else{
+//                 root=root->right;
+//             }
+//         }
+//     }
+//     return dummy;
+// }
+
 TreeNode *deleteBST(TreeNode *root, int key)
 {
     if (root == nullptr)
         return nullptr;
-
-    if (root->data == key)
+    if (key < root->data)
     {
-        return helper(root);
+        root->left = deleteBST(root->left, key);
     }
-
-    TreeNode *dummy = root;
-
-    while (root != nullptr)
+    else if (key > root->data)
     {
-        if (root->data > key){
-            if (root->left != nullptr && root->left->data == key){
-                root->left = helper(root->left);
-                break;
-            } else{
-                root = root->left;
-            }
-        }
-        else{
-            if(root->right!=nullptr && root->right->data==key){
-                root->right = helper(root->right);
-                break;
-            }
-            else{
-                root=root->right;
-            }
-        }
+        root->right = deleteBST(root->right, key);
     }
-    return dummy;
+    else
+    {
+        root = helper(root);
+    }
+    return root;
 }
 
 int main()
